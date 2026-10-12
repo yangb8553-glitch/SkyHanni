@@ -65,7 +65,7 @@ object FishingHookDisplay {
         val displayText = timerPattern.matchMatcher(newName) {
             val time = groupOrNull("time")?.toDoubleOrNull()
 
-            if (groupOrNull("alert") != null || (time != null && time < 0.1)) {
+            if (groupOrNull("alert") != null || (time != null && time <= 0.1)) {
                 config.customAlertText.replace("&", "§")
             } else {
                 newName
